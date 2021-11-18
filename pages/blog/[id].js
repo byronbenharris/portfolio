@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Date from '@components/date'
 import Link from 'next/link'
-import { getAllPostIds, getPostData } from '@lib/posts'
+import { getAllBlogIds, getBlogData } from '@lib/blog'
 import styles from '@styles/layout.module.css'
 import utilStyles from '@styles/utils.module.css'
 
@@ -15,7 +15,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds()
+  const paths = getAllBlogIds()
   return {
     paths,
     fallback: false
