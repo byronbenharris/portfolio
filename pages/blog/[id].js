@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import Date from '../../components/date'
-import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
-import utilStyles from '../../styles/utils.module.css'
+import Date from '@components/date'
+import Link from 'next/link'
+import { getAllPostIds, getPostData } from '@lib/posts'
+import styles from '@styles/layout.module.css'
+import utilStyles from '@styles/utils.module.css'
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id)
@@ -23,7 +24,7 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }) {
   return (
-    <Layout>
+    <div className={styles.container}>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -34,6 +35,11 @@ export default function Post({ postData }) {
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-    </Layout>
+      <div className={styles.backToHome}>
+        <Link href="/">
+          <a>← Back to Home</a>
+        </Link>
+      </div>
+    </div>
   )
 }
