@@ -41,20 +41,7 @@ export default function Home({ allBlogData }) {
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-            {allBlogData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-                <Link href={`/blog/${id}`}>
-                <a>{title}</a>
-                </Link>
-                <br />
-                <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-                </small>
-            </li>
-            ))}
-        </ul>
+        <h2 className={utilStyles.headingLg}>Work</h2>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -87,6 +74,23 @@ export default function Home({ allBlogData }) {
             </a>
           </Link>
         </div>
+      </section>
+
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <ul className={utilStyles.list}>
+            {allBlogData.map(({ id, date, title }) => (
+            <li className={utilStyles.listItem} key={id}>
+                <Link href={`/blog/${id}`}>
+                <a>{title}</a>
+                </Link>
+                <br />
+                <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+                </small>
+            </li>
+            ))}
+        </ul>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
