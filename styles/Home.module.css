@@ -78,7 +78,7 @@
   margin-top: 3rem;
 }
 
-.card {
+.project {
   margin: 1rem;
   padding: 1.5rem;
   text-align: left;
@@ -90,19 +90,19 @@
   width: 45%;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
+.project:hover,
+.project:focus,
+.project:active {
   color: #0070f3;
   border-color: #0070f3;
 }
 
-.card h2 {
+.project h2 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
 }
 
-.card p {
+.project p {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
