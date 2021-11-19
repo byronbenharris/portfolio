@@ -21,7 +21,7 @@
 }
 
 .headingMd {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   line-height: 1.5;
 }
 
@@ -53,4 +53,17 @@
 
 .lightText {
   color: #666;
+}
+
+.backgroundItem {
+  margin: 0 0 1.5rem;
+}
+
+.backgroundItem p {
+  font-size: 1.0rem;
+  margin: 0;
+}
+
+.backgroundDescription {
+  margin: 0.5rem 0 0 0  !important;
 }
