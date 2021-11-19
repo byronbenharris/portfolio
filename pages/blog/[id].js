@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Date from '@components/date'
 import Link from 'next/link'
+import Date from '@components/date'
+import Header from '@components/header'
 import { getAllBlogIds, getBlogData } from '@lib/blog'
 import styles from '@styles/layout.module.css'
 import utilStyles from '@styles/utils.module.css'
@@ -25,9 +25,7 @@ export async function getStaticPaths() {
 export default function Post({ blogData }) {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>{blogData.title}</title>
-      </Head>
+      <Header customTitle={blogData.title} />
       <article>
         <h1 className={utilStyles.headingXl}>{blogData.title}</h1>
         <div className={utilStyles.lightText}>

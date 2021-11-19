@@ -7,7 +7,6 @@ import utilStyles from '@styles/utils.module.css'
 import homeStyles from '@styles/Home.module.css'
 import buttonStyles from '@styles/Button.module.css'
 
-
 import { getSortedBlogData } from '@lib/blog'
 
 export async function getStaticProps() {
@@ -35,8 +34,8 @@ export default function Home({ allBlogData }) {
           alt="Ben Harris"
         />
         <h1 className={utilStyles.heading2Xl}>Ben Harris</h1>
-        <p>Heyo, thanks for visiting my site!</p> 
-        <p>I'm a software developer and aspiring entrepreneur. I'm currently getting a Master's in Computer Science at Rice University. Lately, I've gotten really interested in Web3 so HMU if you're into that too.</p>
+        <p>Heyo, welcome to my portfolio and blog. Thanks for visiting!</p> 
+        <p>I'm a software developer and aspiring entrepreneur. Right now, I'm getting a Master's in Computer Science at Rice University. Lately, I've gotten really interested in Web3 so HMU if you're into that too.</p>
       </header>
 
       <ul>
@@ -86,7 +85,7 @@ export default function Home({ allBlogData }) {
           <div className={homeStyles.project}>
             <h2>Deep Speech Recognition</h2>
             <p><i>Python, TensorFlow</i></p>
-            <p></p>
+            <p>Trained a neural net to identify 10 keywords in speech at 92% accuracy.</p>
             <a href='https://github.com/byronbenharris/keyword-spotting' target="_blank">
               <button class={buttonStyles.button21} role="button">GitHub</button>
             </a>
@@ -94,8 +93,8 @@ export default function Home({ allBlogData }) {
 
           <div className={homeStyles.project}>
             <h2>EZ PowerPoint</h2>
-            <p><i>Python, Flask, JavaScript, HTML, CSS</i></p>
-            <p></p>
+            <p><i>Python, Flask, NLP, HTML, CSS, JS</i></p>
+            <p>Website where you upload text files to receive PowerPoint summaries.</p>
             <a href='http://github.com/gachouchani1999/ezppt' target="_blank">
               <button class={buttonStyles.button21} role="button">GitHub</button>
             </a>
@@ -106,8 +105,8 @@ export default function Home({ allBlogData }) {
 
           <div className={homeStyles.project}>
             <h2>RL Trajectory Optimization</h2>
-            <p><i>Python, Keras, OpenAI Gym</i></p>
-            <p></p>
+            <p><i>Python, TensorFlow, OpenAI Gym</i></p>
+            <p>A novel approach to determining flight paths for interplanetary travel.</p>
             <a href='http://github.com/byronbenharris/reinforcement-learning-trajectory-optimization' target="_blank">
               <button class={buttonStyles.button21} role="button">GitHub</button>
             </a>
@@ -115,8 +114,8 @@ export default function Home({ allBlogData }) {
 
           <div className={homeStyles.project}>
             <h2>Superconductivity Classification</h2>
-            <p><i>Python</i></p>
-            <p></p>
+            <p><i>Python, TensorFlow</i></p>
+            <p>Used chemical composition to classify superconducters at 96% accuracy.</p>
             <a href='/sc-report.pdf' target="_blank">
               <button class={buttonStyles.button21} role="button">Report</button>
             </a>
@@ -124,17 +123,17 @@ export default function Home({ allBlogData }) {
 
           <div className={homeStyles.project}>
             <h2>Personal Website</h2>
-            <p><i>AWS, JavaScript, React, Next.js</i></p>
-            <p>Just a simple site to display my projects and thoughts. You're looking at it rn!</p>
-            <a href='' target="_blank">
+            <p><i>JavaScript, React, Next.js</i></p>
+            <p>Just a simple site to share my projects and thoughts. You're looking at it rn!</p>
+            <a href='https://github.com/byronbenharris/portfolio' target="_blank">
               <button class={buttonStyles.button21} role="button">GitHub</button>
             </a>
           </div>
 
           <div className={homeStyles.project}>
             <h2>PID Motor Control</h2>
-            <p><i>SolidWorks</i></p>
-            <p></p>
+            <p><i>Arduino, SolidWorks, Processing</i></p>
+            <p>A little box with a mounted motor that could adjust for physical interference.</p>
             <a href='http://wiki.chssigma.com/index.php?title=Ben_and_Doug%27s_PID_Motor' target="_blank">
               <button class={buttonStyles.button21} role="button">Docs</button>
             </a>
@@ -143,7 +142,7 @@ export default function Home({ allBlogData }) {
           <div className={homeStyles.project}>
             <h2>3D Printed Airplane</h2>
             <p><i>SolidWorks</i></p>
-            <p></p>
+            <p>Modelled a 3D-printed plane based on a model styrofoam plane.</p>
             <a href='http://wiki.chssigma.com/index.php?title=BACON_Aerospace_Engineering:_3D-Printed_Airplane' target="_blank">
               <button class={buttonStyles.button21} role="button">Docs</button>
             </a>
@@ -152,7 +151,7 @@ export default function Home({ allBlogData }) {
           <div className={homeStyles.project}>
             <h2>Robotic Hand</h2>
             <p><i>SolidWorks</i></p>
-            <p></p>
+            <p>Designed a humanoid hand with an opposable thumb and wrist.</p>
             <a href='http://wiki.chssigma.com/index.php?title=Ben_Harris%27_Robotic_Hand' target="_blank">
               <button class={buttonStyles.button21} role="button">Docs</button>
             </a>
