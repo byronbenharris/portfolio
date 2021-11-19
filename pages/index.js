@@ -4,8 +4,8 @@ import Date from '@components/date'
 import Header from '@components/header'
 import styles from '@styles/layout.module.css'
 import utilStyles from '@styles/utils.module.css'
-import homeStyles from '@styles/Home.module.css'
-import buttonStyles from '@styles/Button.module.css'
+import homeStyles from '@styles/home.module.css'
+import buttonStyles from '@styles/button.module.css'
 
 import { getSortedBlogData } from '@lib/blog'
 
