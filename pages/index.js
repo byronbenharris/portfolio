@@ -68,13 +68,26 @@ export default function Home({ allBlogData }) {
         </div>
         <div className={utilStyles.backgroundItem}>
           <p><b>Master's from Rice University</b></p>
-          <p>Houston, TX | August 2021 - May 2021</p>
-          <p className={utilStyles.backgroundDescription}>I'm sticking around for another year to get a Master's in Computer Science.</p>
+          <p>Houston, TX | January 2022 - December 2022</p>
+          <p className={utilStyles.backgroundDescription}>I'm sticking around Rice for another year to get a Master's in Computer Science.</p>
         </div>
         <div className={utilStyles.backgroundItem}>
           <p><b>Bachelor's from Rice University</b></p>
           <p>Houston, TX | August 2017 - May 2021</p>
           <p className={utilStyles.backgroundDescription}>Majored in Computer Science and minored in Physics.</p>
+        </div>
+        <div className={utilStyles.backgroundItem}>
+          <p>-- Life (Resume Gaps) --</p>
+        </div>
+        <div className={utilStyles.backgroundItem}>
+          <p><b>Roadtripping & Surfing</b></p>
+          <p>N/A | May 2021 - August 2021</p>
+          <p className={utilStyles.backgroundDescription}></p>
+        </div>
+        <div className={utilStyles.backgroundItem}>
+          <p><b>Knee Surgery</b></p>
+          <p>N/A | September 2021 - December 2021</p>
+          <p className={utilStyles.backgroundDescription}></p>
         </div>
       </section>
 
