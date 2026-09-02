@@ -7,40 +7,46 @@ import { getSortedBlogData } from '@lib/blog'
 
 const projects = [
   {
-    title: 'Deep Speech Recognition',
-    description: 'A neural net that learned to recognize ten spoken keywords with 92% accuracy.',
-    tools: 'Python, TensorFlow',
-    href: 'https://github.com/byronbenharris/keyword-spotting'
-  },
-  {
-    title: 'EZ PowerPoint',
-    description: 'A weekend experiment that turns a text file into a summarized slide deck.',
-    tools: 'Python, Flask, NLP',
-    href: 'https://github.com/gachouchani1999/ezppt'
-  },
-  {
     title: 'RL Trajectory Optimization',
-    description: 'An attempt to teach an agent to find better paths through interplanetary space.',
+    description: 'An experiment in using reinforcement learning to find efficient paths through interplanetary space.',
     tools: 'Python, TensorFlow, OpenAI Gym',
     href: 'https://github.com/byronbenharris/reinforcement-learning-trajectory-optimization'
   },
   {
+    title: 'Bowser',
+    description: 'A tiny web browser I wrote in Rust to better understand how browsers work.',
+    tools: 'Rust',
+    href: 'https://github.com/byronbenharris/bowser'
+  },
+  {
     title: 'Superconductivity Classification',
-    description: 'Using chemical composition to predict whether a material is a superconductor.',
+    description: 'A model that predicts whether a material will be superconducting from its chemical composition.',
     tools: 'Python, TensorFlow',
     href: '/sc-report.pdf'
   },
   {
+    title: 'Deep Speech Recognition',
+    description: 'A neural network trained to recognize ten spoken keywords with 92% accuracy.',
+    tools: 'Python, TensorFlow',
+    href: 'https://github.com/byronbenharris/keyword-spotting'
+  },
+  {
     title: 'PID Motor Control',
-    description: 'A small physical system that notices interference and corrects for it.',
+    description: 'A motor-control system that detects physical interference and corrects for it.',
     tools: 'Arduino, SolidWorks, Processing',
     href: 'http://wiki.chssigma.com/index.php?title=Ben_and_Doug%27s_PID_Motor'
   },
   {
     title: 'A Robotic Hand',
-    description: 'A humanoid hand with an opposable thumb and wrist, designed in high school.',
+    description: 'A humanoid hand with an opposable thumb and articulated wrist, designed in high school.',
     tools: 'SolidWorks',
     href: 'http://wiki.chssigma.com/index.php?title=Ben_Harris%27_Robotic_Hand'
+  },
+  {
+    title: '3D-Printed Airplane',
+    description: 'A 3D-printable model based on a small styrofoam airplane.',
+    tools: 'SolidWorks',
+    href: 'http://wiki.chssigma.com/index.php?title=BACON_Aerospace_Engineering:_3D-Printed_Airplane'
   }
 ]
 
@@ -69,17 +75,13 @@ export default function Home({ allBlogData }) {
       <main id="top">
         <section className={styles.intro}>
           <p className={styles.overline}>Hello, internet.</p>
-          <h1>I&apos;m Ben. This is where I put things I&apos;ve made and things I&apos;ve been thinking about.</h1>
-          <div className={styles.introNote}>
-            <span aria-hidden="true">✦</span>
-            <p>I&apos;m interested in software, science, and the messy process of turning an idea into something real. This site is a work in progress—just like everything else.</p>
-          </div>
+          <h1>I&apos;m Ben. This is where I share things I&apos;ve made and ideas I&apos;ve been thinking through.</h1>
+          <p className={styles.introNote}>I&apos;m interested in software, science, and what it takes to turn an idea into something real.</p>
         </section>
 
         <section className={styles.section} id="notes">
           <div className={styles.sectionLabel}>
             <h2>Notes</h2>
-            <p>Thoughts, unfinished and otherwise.</p>
           </div>
 
           <div className={styles.notes}>
@@ -88,7 +90,6 @@ export default function Home({ allBlogData }) {
                 <a className={styles.note}>
                   <div>
                     <h3>{title}</h3>
-                    <p>Read note <span aria-hidden="true">→</span></p>
                   </div>
                   <time><Date dateString={date} /></time>
                 </a>
@@ -100,34 +101,39 @@ export default function Home({ allBlogData }) {
         <section className={styles.section} id="projects">
           <div className={styles.sectionLabel}>
             <h2>Projects</h2>
-            <p>Some things I&apos;ve enjoyed making.</p>
           </div>
 
           <div className={styles.projects}>
-            {projects.map((project, index) => (
-              <a className={styles.project} href={project.href} target="_blank" rel="noreferrer" key={project.title}>
+            {projects.map((project, index) => {
+              const content = (
+                <>
                 <span className={styles.projectNumber}>{String(index + 1).padStart(2, '0')}</span>
                 <div className={styles.projectCopy}>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
                   <small>{project.tools}</small>
                 </div>
-                <Arrow />
-              </a>
-            ))}
+                {project.href && <Arrow />}
+                </>
+              )
+
+              return project.href ? (
+                <a className={styles.project} href={project.href} target="_blank" rel="noreferrer" key={project.title}>{content}</a>
+              ) : (
+                <div className={styles.project} key={project.title}>{content}</div>
+              )
+            })}
           </div>
         </section>
 
         <section className={`${styles.section} ${styles.about}`} id="about">
           <div className={styles.sectionLabel}>
             <h2>About</h2>
-            <p>A little context.</p>
           </div>
 
           <div className={styles.aboutCopy}>
-            <p className={styles.aboutLead}>I&apos;m a software developer and a generally curious person. I like learning how things work, following ideas further than is strictly necessary, and building tools that feel useful.</p>
-            <p>I studied computer science and physics at Rice University, followed by a master&apos;s in computer science. Over the years I&apos;ve worked on web products, machine learning, hardware, and plenty of odd experiments in between.</p>
-            <p>When I&apos;m not making something, I&apos;m probably reading, going down a research rabbit hole, or thinking about the next thing I want to try.</p>
+            <p className={styles.aboutLead}>I&apos;m a software developer and a curious person. I like understanding how things work, following ideas further than necessary, and building tools I find useful.</p>
+            <p>I studied computer science and physics at Rice University, then completed a master&apos;s in computer science. I&apos;ve worked across web software, machine learning, hardware, and plenty of odd experiments in between.</p>
             <div className={styles.aboutLinks}>
               <a href="https://github.com/byronbenharris" target="_blank" rel="noreferrer">GitHub <Arrow /></a>
               <a href="https://linkedin.com/in/byronbenharris" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>
@@ -139,7 +145,7 @@ export default function Home({ allBlogData }) {
 
       <footer className={styles.footer}>
         <p>Made by Ben, with care.</p>
-        <p>Last tended in {new globalThis.Date().getFullYear()}.</p>
+        <p>{new globalThis.Date().getFullYear()}</p>
       </footer>
     </div>
   )
