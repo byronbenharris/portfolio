@@ -1,20 +1,132 @@
-.container {
-  max-width: 50rem; /* 36 initially */
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
+.postPage {
+  min-height: 100vh;
+  background: #f3f0e8;
+  color: #292b26;
 }
 
-.header {
+.postNav,
+.article,
+.postFooter {
+  width: min(100% - 48px, 760px);
+  margin-inline: auto;
+}
+
+.postNav {
+  min-height: 105px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #cbc8be;
 }
 
-.header p {
-  max-width: 36rem;
+.postNav a {
+  color: #292b26;
+  font-size: 13px;
 }
 
-.backToHome {
-  margin: 3rem 0 0;
+.postNav a:first-child {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.article {
+  padding: 100px 0 120px;
+}
+
+.articleHeader {
+  padding-bottom: 55px;
+  border-bottom: 1px solid #cbc8be;
+}
+
+.articleHeader > p {
+  margin: 0 0 24px;
+  color: #9d3f28;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.articleHeader h1 {
+  max-width: 700px;
+  margin: 0 0 25px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(44px, 8vw, 68px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.postDate {
+  color: #74766f;
+  font-size: 12px;
+}
+
+.prose {
+  padding-top: 58px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.prose > * {
+  max-width: 680px;
+}
+
+.prose p {
+  margin: 0 0 1.4em;
+}
+
+.prose h2,
+.prose h3 {
+  margin: 2.2em 0 .7em;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.prose a {
+  color: #9d3f28;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.prose blockquote {
+  margin: 2.2em 0;
+  padding-left: 24px;
+  border-left: 2px solid #9d3f28;
+  color: #5f615b;
+  font-style: italic;
+}
+
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .82em;
+}
+
+.postFooter {
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #cbc8be;
+}
+
+.postFooter a {
+  color: #74766f;
+  font-size: 13px;
+}
+
+.postFooter a:hover,
+.postNav a:hover {
+  color: #9d3f28;
+}
+
+@media (max-width: 600px) {
+  .postNav, .article, .postFooter { width: calc(100% - 36px); }
+  .postNav { min-height: 86px; }
+  .article { padding: 75px 0 90px; }
+  .articleHeader { padding-bottom: 45px; }
+  .articleHeader h1 { font-size: 44px; }
+  .prose { padding-top: 44px; font-size: 18px; line-height: 1.75; }
 }

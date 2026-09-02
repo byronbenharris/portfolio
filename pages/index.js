@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import Date from '@components/date'
 import Header from '@components/header'
 import styles from '@styles/home.module.css'
@@ -8,165 +7,139 @@ import { getSortedBlogData } from '@lib/blog'
 
 const projects = [
   {
-    number: '01', title: 'Deep Speech Recognition',
-    description: 'A neural network trained to recognize ten spoken keywords with 92% accuracy.',
-    stack: ['Python', 'TensorFlow'],
-    links: [{ label: 'View on GitHub', href: 'https://github.com/byronbenharris/keyword-spotting' }], tone: 'blue'
+    title: 'Deep Speech Recognition',
+    description: 'A neural net that learned to recognize ten spoken keywords with 92% accuracy.',
+    tools: 'Python, TensorFlow',
+    href: 'https://github.com/byronbenharris/keyword-spotting'
   },
   {
-    number: '02', title: 'EZ PowerPoint',
-    description: 'A web app that turns long-form text into concise, ready-to-present slide decks.',
-    stack: ['Flask', 'NLP', 'JavaScript'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/gachouchani1999/ezppt' },
-      { label: 'DevPost', href: 'https://devpost.com/software/ez-powerpoint' }
-    ], tone: 'coral'
+    title: 'EZ PowerPoint',
+    description: 'A weekend experiment that turns a text file into a summarized slide deck.',
+    tools: 'Python, Flask, NLP',
+    href: 'https://github.com/gachouchani1999/ezppt'
   },
   {
-    number: '03', title: 'RL Trajectory Optimization',
-    description: 'An experimental reinforcement-learning approach to interplanetary flight paths.',
-    stack: ['Python', 'OpenAI Gym', 'TensorFlow'],
-    links: [{ label: 'View on GitHub', href: 'https://github.com/byronbenharris/reinforcement-learning-trajectory-optimization' }], tone: 'yellow'
+    title: 'RL Trajectory Optimization',
+    description: 'An attempt to teach an agent to find better paths through interplanetary space.',
+    tools: 'Python, TensorFlow, OpenAI Gym',
+    href: 'https://github.com/byronbenharris/reinforcement-learning-trajectory-optimization'
   },
   {
-    number: '04', title: 'Superconductivity Classification',
-    description: 'A chemical-composition model that classifies superconductors at 96% accuracy.',
-    stack: ['Python', 'TensorFlow'],
-    links: [{ label: 'Read the report', href: '/sc-report.pdf' }], tone: 'mint'
+    title: 'Superconductivity Classification',
+    description: 'Using chemical composition to predict whether a material is a superconductor.',
+    tools: 'Python, TensorFlow',
+    href: '/sc-report.pdf'
+  },
+  {
+    title: 'PID Motor Control',
+    description: 'A small physical system that notices interference and corrects for it.',
+    tools: 'Arduino, SolidWorks, Processing',
+    href: 'http://wiki.chssigma.com/index.php?title=Ben_and_Doug%27s_PID_Motor'
+  },
+  {
+    title: 'A Robotic Hand',
+    description: 'A humanoid hand with an opposable thumb and wrist, designed in high school.',
+    tools: 'SolidWorks',
+    href: 'http://wiki.chssigma.com/index.php?title=Ben_Harris%27_Robotic_Hand'
   }
-]
-
-const experiments = [
-  { title: 'Personal Website', type: 'Next.js / React', href: 'https://github.com/byronbenharris/portfolio' },
-  { title: 'PID Motor Control', type: 'Arduino / SolidWorks', href: 'http://wiki.chssigma.com/index.php?title=Ben_and_Doug%27s_PID_Motor' },
-  { title: '3D Printed Airplane', type: 'SolidWorks', href: 'http://wiki.chssigma.com/index.php?title=BACON_Aerospace_Engineering:_3D-Printed_Airplane' },
-  { title: 'Robotic Hand', type: 'SolidWorks', href: 'http://wiki.chssigma.com/index.php?title=Ben_Harris%27_Robotic_Hand' }
 ]
 
 export async function getStaticProps() {
   return { props: { allBlogData: getSortedBlogData() } }
 }
 
-function ArrowIcon() {
-  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.7" /></svg>
-}
-
-function ExternalLink({ href, children, className = '' }) {
-  return <a className={className} href={href} target="_blank" rel="noreferrer">{children}<ArrowIcon /></a>
+function Arrow() {
+  return <span className={styles.arrow} aria-hidden="true">↗</span>
 }
 
 export default function Home({ allBlogData }) {
   return (
-    <div className={styles.site}>
+    <div className={styles.page}>
       <Header />
 
-      <nav className={styles.nav} aria-label="Main navigation">
-        <a className={styles.wordmark} href="#top" aria-label="Ben Harris, home">
-          <span>BH</span><span className={styles.wordmarkText}>Ben Harris<br />Builds things</span>
-        </a>
-        <div className={styles.navLinks}>
-          <a href="#work">Work</a><a href="#about">About</a><a href="#notes">Notes</a>
-        </div>
-        <a className={styles.navCta} href="#contact">Let&apos;s talk <span>↓</span></a>
-      </nav>
+      <header className={styles.header}>
+        <a className={styles.name} href="#top">Ben Harris</a>
+        <nav aria-label="Main navigation">
+          <a href="#notes">Notes</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+        </nav>
+      </header>
 
-      <main>
-        <section className={styles.hero} id="top">
-          <div className={styles.heroCopy}>
-            <div className={styles.eyebrow}><span /> Software engineer &amp; product builder</div>
-            <h1>I make ambitious ideas <em>work.</em></h1>
-            <p className={styles.heroIntro}>I&apos;m Ben—a developer with an appetite for useful software, strange experiments, and the space where technical depth meets good product thinking.</p>
-            <div className={styles.heroActions}>
-              <a className={styles.primaryButton} href="#work">Explore my work <ArrowIcon /></a>
-              <a className={styles.textLink} href="/resume.pdf" target="_blank" rel="noreferrer">Résumé <span>↗</span></a>
-            </div>
-          </div>
-          <div className={styles.portraitWrap}>
-            <div className={styles.portraitFrame}>
-              <Image priority src="/profile.jpeg" layout="fill" objectFit="cover" alt="Ben Harris standing beneath the brick arches at Rice University" />
-            </div>
-            <div className={styles.photoTag}>Based in the U.S. <span>●</span> Open to interesting problems</div>
-            <span className={styles.spark}>✳</span>
+      <main id="top">
+        <section className={styles.intro}>
+          <p className={styles.overline}>Hello, internet.</p>
+          <h1>I&apos;m Ben. This is where I put things I&apos;ve made and things I&apos;ve been thinking about.</h1>
+          <div className={styles.introNote}>
+            <span aria-hidden="true">✦</span>
+            <p>I&apos;m interested in software, science, and the messy process of turning an idea into something real. This site is a work in progress—just like everything else.</p>
           </div>
         </section>
 
-        <div className={styles.marquee} aria-hidden="true"><div>ENGINEERING <span>✦</span> PRODUCTS <span>✦</span> MACHINE LEARNING <span>✦</span> EXPERIMENTS <span>✦</span> ENGINEERING <span>✦</span> PRODUCTS <span>✦</span></div></div>
-
-        <section className={styles.work} id="work">
-          <div className={styles.sectionHeading}>
-            <div><span className={styles.sectionNumber}>01</span><p>Selected work</p></div>
-            <h2>A few things I&apos;ve<br /><em>made real.</em></h2>
-            <p>Projects across machine learning, product engineering, and scientific computing.</p>
+        <section className={styles.section} id="notes">
+          <div className={styles.sectionLabel}>
+            <h2>Notes</h2>
+            <p>Thoughts, unfinished and otherwise.</p>
           </div>
-          <div className={styles.projectGrid}>
-            {projects.map((project) => (
-              <article className={`${styles.projectCard} ${styles[project.tone]}`} key={project.title}>
-                <div className={styles.cardTop}><span>{project.number}</span><div className={styles.projectGlyph} aria-hidden="true"><i /><i /><i /></div></div>
-                <div className={styles.cardBody}>
-                  <div className={styles.tags}>{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
-                  <h3>{project.title}</h3><p>{project.description}</p>
-                  <div className={styles.cardLinks}>{project.links.map((link) => <ExternalLink href={link.href} key={link.label}>{link.label}</ExternalLink>)}</div>
+
+          <div className={styles.notes}>
+            {allBlogData.map(({ id, date, title }) => (
+              <Link href={`/blog/${id}`} key={id}>
+                <a className={styles.note}>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>Read note <span aria-hidden="true">→</span></p>
+                  </div>
+                  <time><Date dateString={date} /></time>
+                </a>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.section} id="projects">
+          <div className={styles.sectionLabel}>
+            <h2>Projects</h2>
+            <p>Some things I&apos;ve enjoyed making.</p>
+          </div>
+
+          <div className={styles.projects}>
+            {projects.map((project, index) => (
+              <a className={styles.project} href={project.href} target="_blank" rel="noreferrer" key={project.title}>
+                <span className={styles.projectNumber}>{String(index + 1).padStart(2, '0')}</span>
+                <div className={styles.projectCopy}>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <small>{project.tools}</small>
                 </div>
-              </article>
-            ))}
-          </div>
-          <div className={styles.archive}>
-            <h3>More experiments</h3>
-            {experiments.map((item, index) => (
-              <ExternalLink href={item.href} className={styles.archiveRow} key={item.title}>
-                <span className={styles.archiveIndex}>0{index + 5}</span><strong>{item.title}</strong><span>{item.type}</span>
-              </ExternalLink>
+                <Arrow />
+              </a>
             ))}
           </div>
         </section>
 
-        <section className={styles.about} id="about">
-          <div className={styles.aboutIntro}>
-            <span className={styles.sectionNumber}>02</span><p className={styles.kicker}>About / background</p>
-            <h2>Curious by default.<br /><em>Practical on purpose.</em></h2>
+        <section className={`${styles.section} ${styles.about}`} id="about">
+          <div className={styles.sectionLabel}>
+            <h2>About</h2>
+            <p>A little context.</p>
           </div>
+
           <div className={styles.aboutCopy}>
-            <p className={styles.lede}>I like learning quickly, getting close to the problem, and turning ambiguity into something people can actually use.</p>
-            <p>My background spans full-stack engineering, applied machine learning, and hardware projects. I studied Computer Science and Physics at Rice, then stayed for a Master&apos;s in Computer Science.</p>
-            <ExternalLink href="/resume.pdf" className={styles.inlineLink}>Download my résumé</ExternalLink>
+            <p className={styles.aboutLead}>I&apos;m a software developer and a generally curious person. I like learning how things work, following ideas further than is strictly necessary, and building tools that feel useful.</p>
+            <p>I studied computer science and physics at Rice University, followed by a master&apos;s in computer science. Over the years I&apos;ve worked on web products, machine learning, hardware, and plenty of odd experiments in between.</p>
+            <p>When I&apos;m not making something, I&apos;m probably reading, going down a research rabbit hole, or thinking about the next thing I want to try.</p>
+            <div className={styles.aboutLinks}>
+              <a href="https://github.com/byronbenharris" target="_blank" rel="noreferrer">GitHub <Arrow /></a>
+              <a href="https://linkedin.com/in/byronbenharris" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>
+              <a href="/resume.pdf" target="_blank" rel="noreferrer">Résumé <Arrow /></a>
+            </div>
           </div>
-          <div className={styles.timeline}>
-            <div className={styles.timelineRow}><span>2020</span><strong>Enterprise Engineer Intern</strong><p>Facebook · Austin, TX</p></div>
-            <div className={styles.timelineRow}><span>2019</span><strong>Software Engineer Intern</strong><p>Babylon Micro-Farms · Charlottesville, VA</p></div>
-            <div className={styles.timelineRow}><span>Rice</span><strong>M.S. Computer Science</strong><p>B.S. Computer Science · Physics minor</p></div>
-          </div>
-        </section>
-
-        <section className={styles.notes} id="notes">
-          <div className={styles.sectionHeading}>
-            <div><span className={styles.sectionNumber}>03</span><p>Field notes</p></div>
-            <h2>Thinking<br /><em>out loud.</em></h2>
-            <p>Occasional writing about things I&apos;m learning, building, or trying to understand.</p>
-          </div>
-          <div className={styles.noteList}>
-            {allBlogData.map(({ id, date, title }, index) => (
-              <Link href={`/blog/${id}`} key={id}><a className={styles.noteRow}>
-                <span>0{index + 1}</span><strong>{title}</strong><time><Date dateString={date} /></time><ArrowIcon />
-              </a></Link>
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.contact} id="contact">
-          <p>Have an idea, a hard problem, or just a good story?</p>
-          <h2>Let&apos;s make something<br /><em>worth talking about.</em></h2>
-          <a href="https://linkedin.com/in/byronbenharris" target="_blank" rel="noreferrer">Start a conversation <ArrowIcon /></a><span className={styles.contactStar}>✳</span>
         </section>
       </main>
 
       <footer className={styles.footer}>
-        <div><strong>Ben Harris</strong><span>Engineer / builder / relentlessly curious</span></div>
-        <div className={styles.socials}>
-          <a href="https://github.com/byronbenharris" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://linkedin.com/in/byronbenharris" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="https://twitter.com/byronbenharris" target="_blank" rel="noreferrer">Twitter ↗</a>
-        </div>
-        <span>© {new globalThis.Date().getFullYear()} · Built with intention</span>
+        <p>Made by Ben, with care.</p>
+        <p>Last tended in {new globalThis.Date().getFullYear()}.</p>
       </footer>
     </div>
   )

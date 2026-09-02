@@ -3,7 +3,6 @@ import Date from '@components/date'
 import Header from '@components/header'
 import { getAllBlogIds, getBlogData } from '@lib/blog'
 import styles from '@styles/layout.module.css'
-import utilStyles from '@styles/utils.module.css'
 
 export async function getStaticProps({ params }) {
   const blogData = await getBlogData(params.id)
@@ -24,18 +23,25 @@ export async function getStaticPaths() {
 
 export default function Post({ blogData }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.postPage}>
       <Header customTitle={blogData.title} />
-      <article>
-        <h1 className={utilStyles.headingXl}>{blogData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={blogData.date} />
+      <header className={styles.postNav}>
+        <Link href="/"><a>Ben Harris</a></Link>
+        <Link href="/#notes"><a>All notes</a></Link>
+      </header>
+      <article className={styles.article}>
+        <div className={styles.articleHeader}>
+          <p>Note</p>
+          <h1>{blogData.title}</h1>
+          <div className={styles.postDate}>
+            <Date dateString={blogData.date} />
+          </div>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: blogData.contentHtml }} />
+        <div className={styles.prose} dangerouslySetInnerHTML={{ __html: blogData.contentHtml }} />
       </article>
-      <div className={styles.backToHome}>
+      <div className={styles.postFooter}>
         <Link href="/">
-          <a>← Back to Home</a>
+          <a>← Back home</a>
         </Link>
       </div>
     </div>
