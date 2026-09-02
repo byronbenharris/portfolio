@@ -105,6 +105,46 @@
   font-size: .82em;
 }
 
+.proseContinuation {
+  padding-top: 0;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1.6em;
+  padding-left: 1.35em;
+}
+
+.prose li {
+  margin-bottom: .55em;
+  padding-left: .25em;
+}
+
+.prose pre {
+  max-width: 760px;
+  overflow-x: auto;
+  margin: 1.8em 0 2em;
+  padding: 20px 22px;
+  border: 1px solid #cbc8be;
+  border-radius: 4px;
+  background: #eae7df;
+  font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.prose pre code {
+  font: inherit;
+}
+
+.prose strong {
+  font-weight: 700;
+}
+
+.prose hr {
+  margin: 3.4em 0;
+  border: 0;
+  border-top: 1px solid #cbc8be;
+}
+
 .postFooter {
   min-height: 130px;
   display: flex;

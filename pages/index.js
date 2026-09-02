@@ -117,11 +117,12 @@ export default function Home({ allBlogData }) {
           </div>
 
           <div className={styles.notes}>
-            {allBlogData.map(({ id, date, title }) => (
+            {allBlogData.map(({ id, date, title, description }) => (
               <Link href={`/blog/${id}`} key={id}>
                 <a className={styles.note}>
                   <div>
                     <h3>{title}</h3>
+                    {description && <p>{description}</p>}
                   </div>
                   <time><Date dateString={date} /></time>
                 </a>

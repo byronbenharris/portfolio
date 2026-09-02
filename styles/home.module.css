@@ -132,6 +132,14 @@
   letter-spacing: -.02em;
 }
 
+.note p {
+  max-width: 590px;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .note time {
   margin: 0;
   color: var(--muted);
