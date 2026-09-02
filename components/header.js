@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'Ben Harris — Software Engineer & Product Builder'
 
 export default function Header({ customTitle }) {
   return (
@@ -9,10 +9,12 @@ export default function Header({ customTitle }) {
         rel="icon" 
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤙</text></svg>"
       />
+      <meta name="description" content="Ben Harris is a software engineer and product builder working across full-stack systems, machine learning, and ambitious experiments." />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       {customTitle ? (
         <title>{customTitle}</title>
       ) : (
-        <title>Ben Harris' Portfolio</title>
+        <title>{siteTitle}</title>
       )}
     </Head>
   )

@@ -1,11 +1,21 @@
-html,
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap');
+
+:root {
+  --display: 'Manrope', Arial, sans-serif;
+  --serif: 'Playfair Display', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Manrope', Arial, sans-serif;
   line-height: 1.6;
-  /* font-size: 18px; */
+  background: #f2efe7;
+  color: #151515;
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
@@ -13,13 +23,10 @@ body {
 }
 
 a {
-  color: #0070f3;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
+::selection { background: #3157ff; color: white; }
 
 img {
   max-width: 100%;
