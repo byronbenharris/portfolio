@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export const siteTitle = 'Ben Harris — Notes and Projects'
+export const siteTitle = 'Ben Harris — Blog and Projects'
 const siteDescription = 'The personal website of Ben Harris: notes, projects, and things worth sharing.'
 
 export default function Header({ customTitle, customDescription }) {

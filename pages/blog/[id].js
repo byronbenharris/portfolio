@@ -28,11 +28,11 @@ export default function Post({ blogData }) {
       <Header customTitle={blogData.title} customDescription={blogData.description} />
       <header className={styles.postNav}>
         <Link href="/"><a>Ben Harris</a></Link>
-        <Link href="/#notes"><a>All notes</a></Link>
+        <Link href="/#blog"><a>Blog</a></Link>
       </header>
       <article className={styles.article}>
         <div className={styles.articleHeader}>
-          <p>Note</p>
+          <p>Blog</p>
           <h1>{blogData.title}</h1>
           <div className={styles.postDate}>
             <Date dateString={blogData.date} />

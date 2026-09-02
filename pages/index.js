@@ -98,7 +98,7 @@ export default function Home({ allBlogData }) {
       <header className={styles.header}>
         <a className={styles.name} href="#top">Ben Harris</a>
         <nav aria-label="Main navigation">
-          <a href="#notes">Notes</a>
+          <a href="#blog">Blog</a>
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
         </nav>
@@ -111,9 +111,9 @@ export default function Home({ allBlogData }) {
           <p className={styles.introNote}>I&apos;m interested in software, science, and what it takes to turn an idea into something real.</p>
         </section>
 
-        <section className={styles.section} id="notes">
+        <section className={styles.section} id="blog">
           <div className={styles.sectionLabel}>
-            <h2>Notes</h2>
+            <h2>Blog</h2>
           </div>
 
           <div className={styles.notes}>

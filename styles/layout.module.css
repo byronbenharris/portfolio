@@ -12,7 +12,7 @@
 }
 
 .postNav {
-  min-height: 105px;
+  min-height: 82px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,11 +31,11 @@
 }
 
 .article {
-  padding: 100px 0 120px;
+  padding: 72px 0 96px;
 }
 
 .articleHeader {
-  padding-bottom: 55px;
+  padding-bottom: 40px;
   border-bottom: 1px solid #cbc8be;
 }
 
@@ -50,12 +50,12 @@
 
 .articleHeader h1 {
   max-width: 700px;
-  margin: 0 0 25px;
+  margin: 0 0 20px;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(44px, 8vw, 68px);
+  font-size: clamp(34px, 5vw, 48px);
   font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -.04em;
+  line-height: 1.12;
+  letter-spacing: -.035em;
 }
 
 .postDate {
@@ -64,10 +64,10 @@
 }
 
 .prose {
-  padding-top: 58px;
+  padding-top: 42px;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 20px;
-  line-height: 1.8;
+  font-size: 17px;
+  line-height: 1.72;
 }
 
 .prose > * {
@@ -80,10 +80,13 @@
 
 .prose h2,
 .prose h3 {
-  margin: 2.2em 0 .7em;
+  margin: 2em 0 .65em;
   line-height: 1.25;
   letter-spacing: -.02em;
 }
+
+.prose h2 { font-size: 25px; }
+.prose h3 { font-size: 20px; }
 
 .prose a {
   color: #9d3f28;
@@ -146,7 +149,7 @@
 }
 
 .postFooter {
-  min-height: 130px;
+  min-height: 96px;
   display: flex;
   align-items: center;
   border-top: 1px solid #cbc8be;
@@ -164,9 +167,9 @@
 
 @media (max-width: 600px) {
   .postNav, .article, .postFooter { width: calc(100% - 36px); }
-  .postNav { min-height: 86px; }
-  .article { padding: 75px 0 90px; }
-  .articleHeader { padding-bottom: 45px; }
-  .articleHeader h1 { font-size: 44px; }
-  .prose { padding-top: 44px; font-size: 18px; line-height: 1.75; }
+  .postNav { min-height: 72px; }
+  .article { padding: 54px 0 72px; }
+  .articleHeader { padding-bottom: 34px; }
+  .articleHeader h1 { font-size: 34px; }
+  .prose { padding-top: 34px; font-size: 16px; line-height: 1.7; }
 }
