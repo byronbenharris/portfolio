@@ -102,7 +102,7 @@
 }
 
 .notes {
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--line);
 }
 
 .note {
@@ -154,7 +154,7 @@
 }
 
 .projects {
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--line);
 }
 
 .project {
