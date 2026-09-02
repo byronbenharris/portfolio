@@ -140,6 +140,19 @@
 
 .note time { white-space: nowrap; }
 
+.projectGroup + .projectGroup {
+  margin-top: 48px;
+}
+
+.projectGroupLabel {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
 .projects {
   border-top: 1px solid var(--ink);
 }
@@ -148,7 +161,7 @@
   min-height: 132px;
   padding: 23px 2px;
   display: grid;
-  grid-template-columns: 42px 1fr 24px;
+  grid-template-columns: 1fr 24px;
   gap: 20px;
   border-bottom: 1px solid var(--line);
   color: var(--ink);
@@ -159,13 +172,6 @@
   padding-left: 14px;
   padding-right: 14px;
   color: var(--accent);
-}
-
-.projectNumber {
-  padding-top: 6px;
-  color: var(--muted);
-  font-size: 11px;
-  font-variant-numeric: tabular-nums;
 }
 
 .projectCopy h3 {
@@ -224,22 +230,18 @@ a:hover .arrow { transform: translate(2px, -2px); }
   letter-spacing: -.015em;
 }
 
-.aboutLinks {
-  margin-top: 30px;
+.footerLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 20px;
 }
 
-.aboutLinks a {
-  padding-bottom: 3px;
-  border-bottom: 1px solid var(--line);
-  color: var(--ink);
-  font-size: 13px;
+.footerLinks a {
+  color: var(--muted);
+  font-size: 12px;
 }
 
-.aboutLinks a:hover {
-  border-color: var(--accent);
+.footerLinks a:hover {
   color: var(--accent);
 }
 
@@ -266,11 +268,12 @@ a:hover .arrow { transform: translate(2px, -2px); }
   .intro h1 { font-size: clamp(37px, 10vw, 48px); }
   .introNote { margin-top: 25px; }
   .section { padding: 58px 0 68px; grid-template-columns: 1fr; gap: 28px; }
+  .projectGroup + .projectGroup { margin-top: 38px; }
   .sectionLabel { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
   .sectionLabel h2 { font-size: 22px; }
   .note { min-height: 80px; }
   .note h3, .projectCopy h3 { font-size: 21px; }
-  .project { grid-template-columns: 30px 1fr 18px; gap: 12px; }
+  .project { grid-template-columns: 1fr 18px; gap: 12px; }
   .aboutCopy .aboutLead { font-size: 21px; }
   .footer { min-height: 82px; }
 }
